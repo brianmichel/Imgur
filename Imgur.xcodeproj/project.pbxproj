@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C815E17D5C002A965D /* Foundation.framework */; };
+		72A293CE15E17D5C002A965D /* Imgur.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72A293CD15E17D5C002A965D /* Imgur.h */; };
+		72A293D015E17D5C002A965D /* Imgur.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A293CF15E17D5C002A965D /* Imgur.m */; };
+		72A293D815E17D5C002A965D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293D715E17D5C002A965D /* SenTestingKit.framework */; };
+		72A293DA15E17D5C002A965D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293D915E17D5C002A965D /* UIKit.framework */; };
+		72A293DB15E17D5C002A965D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C815E17D5C002A965D /* Foundation.framework */; };
+		72A293DE15E17D5C002A965D /* libImgur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C515E17D5C002A965D /* libImgur.a */; };
+		72A293E415E17D5D002A965D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A293E215E17D5D002A965D /* InfoPlist.strings */; };
+		72A293E715E17D5D002A965D /* ImgurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A293E615E17D5D002A965D /* ImgurTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		72A293DC15E17D5C002A965D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72A293BC15E17D5B002A965D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72A293C415E17D5B002A965D;
+			remoteInfo = Imgur;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72A293C315E17D5B002A965D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				72A293CE15E17D5C002A965D /* Imgur.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		72A293C515E17D5C002A965D /* libImgur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImgur.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A293C815E17D5C002A965D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72A293CC15E17D5C002A965D /* Imgur-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imgur-Prefix.pch"; sourceTree = "<group>"; };
+		72A293CD15E17D5C002A965D /* Imgur.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Imgur.h; sourceTree = "<group>"; };
+		72A293CF15E17D5C002A965D /* Imgur.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Imgur.m; sourceTree = "<group>"; };
+		72A293D615E17D5C002A965D /* ImgurTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImgurTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A293D715E17D5C002A965D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		72A293D915E17D5C002A965D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		72A293E115E17D5D002A965D /* ImgurTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImgurTests-Info.plist"; sourceTree = "<group>"; };
+		72A293E315E17D5D002A965D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		72A293E515E17D5D002A965D /* ImgurTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImgurTests.h; sourceTree = "<group>"; };
+		72A293E615E17D5D002A965D /* ImgurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgurTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72A293C215E17D5B002A965D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72A293D215E17D5C002A965D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A293D815E17D5C002A965D /* SenTestingKit.framework in Frameworks */,
+				72A293DA15E17D5C002A965D /* UIKit.framework in Frameworks */,
+				72A293DB15E17D5C002A965D /* Foundation.framework in Frameworks */,
+				72A293DE15E17D5C002A965D /* libImgur.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72A293BA15E17D5B002A965D = {
+			isa = PBXGroup;
+			children = (
+				72A293CA15E17D5C002A965D /* Imgur */,
+				72A293DF15E17D5C002A965D /* ImgurTests */,
+				72A293C715E17D5C002A965D /* Frameworks */,
+				72A293C615E17D5C002A965D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72A293C615E17D5C002A965D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72A293C515E17D5C002A965D /* libImgur.a */,
+				72A293D615E17D5C002A965D /* ImgurTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72A293C715E17D5C002A965D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72A293C815E17D5C002A965D /* Foundation.framework */,
+				72A293D715E17D5C002A965D /* SenTestingKit.framework */,
+				72A293D915E17D5C002A965D /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72A293CA15E17D5C002A965D /* Imgur */ = {
+			isa = PBXGroup;
+			children = (
+				72A293CD15E17D5C002A965D /* Imgur.h */,
+				72A293CF15E17D5C002A965D /* Imgur.m */,
+				72A293CB15E17D5C002A965D /* Supporting Files */,
+			);
+			path = Imgur;
+			sourceTree = "<group>";
+		};
+		72A293CB15E17D5C002A965D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72A293CC15E17D5C002A965D /* Imgur-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72A293DF15E17D5C002A965D /* ImgurTests */ = {
+			isa = PBXGroup;
+			children = (
+				72A293E515E17D5D002A965D /* ImgurTests.h */,
+				72A293E615E17D5D002A965D /* ImgurTests.m */,
+				72A293E015E17D5D002A965D /* Supporting Files */,
+			);
+			path = ImgurTests;
+			sourceTree = "<group>";
+		};
+		72A293E015E17D5D002A965D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72A293E115E17D5D002A965D /* ImgurTests-Info.plist */,
+				72A293E215E17D5D002A965D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72A293C415E17D5B002A965D /* Imgur */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72A293EA15E17D5D002A965D /* Build configuration list for PBXNativeTarget "Imgur" */;
+			buildPhases = (
+				72A293C115E17D5B002A965D /* Sources */,
+				72A293C215E17D5B002A965D /* Frameworks */,
+				72A293C315E17D5B002A965D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Imgur;
+			productName = Imgur;
+			productReference = 72A293C515E17D5C002A965D /* libImgur.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		72A293D515E17D5C002A965D /* ImgurTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72A293ED15E17D5D002A965D /* Build configuration list for PBXNativeTarget "ImgurTests" */;
+			buildPhases = (
+				72A293D115E17D5C002A965D /* Sources */,
+				72A293D215E17D5C002A965D /* Frameworks */,
+				72A293D315E17D5C002A965D /* Resources */,
+				72A293D415E17D5C002A965D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72A293DD15E17D5C002A965D /* PBXTargetDependency */,
+			);
+			name = ImgurTests;
+			productName = ImgurTests;
+			productReference = 72A293D615E17D5C002A965D /* ImgurTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72A293BC15E17D5B002A965D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Foureyes;
+			};
+			buildConfigurationList = 72A293BF15E17D5B002A965D /* Build configuration list for PBXProject "Imgur" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 72A293BA15E17D5B002A965D;
+			productRefGroup = 72A293C615E17D5C002A965D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72A293C415E17D5B002A965D /* Imgur */,
+				72A293D515E17D5C002A965D /* ImgurTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72A293D315E17D5C002A965D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A293E415E17D5D002A965D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		72A293D415E17D5C002A965D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72A293C115E17D5B002A965D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A293D015E17D5C002A965D /* Imgur.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72A293D115E17D5C002A965D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A293E715E17D5D002A965D /* ImgurTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72A293DD15E17D5C002A965D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72A293C415E17D5B002A965D /* Imgur */;
+			targetProxy = 72A293DC15E17D5C002A965D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		72A293E215E17D5D002A965D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A293E315E17D5D002A965D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		72A293E815E17D5D002A965D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		72A293E915E17D5D002A965D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72A293EB15E17D5D002A965D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Imgur.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		72A293EC15E17D5D002A965D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Imgur.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		72A293EE15E17D5D002A965D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		72A293EF15E17D5D002A965D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72A293BF15E17D5B002A965D /* Build configuration list for PBXProject "Imgur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72A293E815E17D5D002A965D /* Debug */,
+				72A293E915E17D5D002A965D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72A293EA15E17D5D002A965D /* Build configuration list for PBXNativeTarget "Imgur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72A293EB15E17D5D002A965D /* Debug */,
+				72A293EC15E17D5D002A965D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		72A293ED15E17D5D002A965D /* Build configuration list for PBXNativeTarget "ImgurTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72A293EE15E17D5D002A965D /* Debug */,
+				72A293EF15E17D5D002A965D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72A293BC15E17D5B002A965D /* Project object */;
+}
