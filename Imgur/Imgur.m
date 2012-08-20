@@ -15,8 +15,13 @@ NSString * const kImgurAPIVersion = @"2.0";
 NSString * const kImgurParamsNameKey = @"name";
 NSString * const kImgurParamsTitleKey = @"title";
 NSString * const kImgurParamsCaptionKey = @"caption";
+NSString * const kImgurDictionaryImageKey = @"image";
 
 NSString * const kImgurCallbackURL = @"imgur://auth_token";
+NSString * const kImgurRequestTokenPath = @"oauth/request_token";
+NSString * const kImgurAccessTokenPath = @"oauth/access_token";
+
+#define IMGUR_AUTHORIZE(__TOKEN__) [NSString stringWithFormat:@"http://%@/oauth/authorize?%@",kImgurAPIBaseURL, __TOKEN__]
 
 NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSString *caption) {
   return @{kImgurParamsNameKey : name,
@@ -94,7 +99,6 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   NSMutableDictionary *tokenDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                           self.token, @"oauth_token",
                                           self.tokenSecret, @"oauth_token_secret",
-                                          self.userName, @"user_name",
                                           nil];
   
   // Add the token dictionary to the query
@@ -132,7 +136,6 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
       if (tokenDictionary) {
         [self setAccessToken:[tokenDictionary objectForKey:@"oauth_token"]
                       secret:[tokenDictionary objectForKey:@"oauth_token_secret"]];
-        _userName = [tokenDictionary objectForKey:@"user_name"];
         return YES;
       }
     }
@@ -145,7 +148,7 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   MKNetworkOperation *op = [self operationWithURLString:[[Imgur urlForHashCode:hashCode] absoluteString]];
   [op onCompletion:^(MKNetworkOperation *completedOperation) {
     if (handler) {
-      handler(nil, @{@"image" : [completedOperation responseData]});
+      handler(nil, @{kImgurDictionaryImageKey : [completedOperation responseData]});
     }
   } onError:^(NSError *error) {
     if (handler) {
@@ -162,14 +165,13 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   
   [self resetOAuthToken];
   
-  MKNetworkOperation *reqTokenOp = [self operationWithPath:@"oauth/request_token" params:nil httpMethod:@"POST"];
+  MKNetworkOperation *reqTokenOp = [self operationWithPath:kImgurRequestTokenPath params:nil httpMethod:@"POST"];
   
   [reqTokenOp onCompletion:^(MKNetworkOperation *completedOperation) {
     [self fillTokenWithResponseBody:[completedOperation responseString] type:RSOAuthRequestToken];
     
-    // Get the access token using xAuth
     if (self.delegate && [self.delegate respondsToSelector:@selector(imgurNeedsAuthorizationForURL:)]) {
-      [self.delegate imgurNeedsAuthorizationForURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/oauth/authorize?%@",kImgurAPIBaseURL, self.token]]];
+      [self.delegate imgurNeedsAuthorizationForURL:[NSURL URLWithString:IMGUR_AUTHORIZE(self.token)]];
     }
   } onError:^(NSError *error) {
     if (handler) {handler(error);}
@@ -180,7 +182,7 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
 - (void)resumeAuthenticationFlowFromURL:(NSURL *)url {
   [self fillTokenWithResponseBody:url.query type:RSOAuthRequestToken];
   
-  MKNetworkOperation *reqTokenOp = [self operationWithPath:@"oauth/access_token" params:nil httpMethod:@"POST"];
+  MKNetworkOperation *reqTokenOp = [self operationWithPath:kImgurAccessTokenPath params:nil httpMethod:@"POST"];
   
   [reqTokenOp onCompletion:^(MKNetworkOperation *completedOperation) {
     [self fillTokenWithResponseBody:[completedOperation responseString] type:RSOAuthAccessToken];

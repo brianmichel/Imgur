@@ -13,6 +13,7 @@
 OBJC_EXTERN NSString * const kImgurAPIBaseURL;
 OBJC_EXTERN NSString * const kImgurAPIVersion;
 OBJC_EXTERN NSString * const kImgurCallbackURL;
+OBJC_EXTERN NSString * const kImgurDictionaryImageKey;
 
 typedef enum ImgurAPIType {
   ImgurAPITypeAnonymous = 0,
