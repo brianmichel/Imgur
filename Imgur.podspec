@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Cocoa wrapper for the Imgur api."
   s.license      = 'MIT'
   s.author       = { "Brian Michel" => "brian.michel@gmail.com" }
-  s.source       = { :git => "https://github.com/brianmichel/Imgur.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/brianmichel/Imgur.git", :commit => "eb033606eda8611f8d623e7f3560b401a097d23a" }
   s.homepage     = 'http://github.com/brianmichel/Imgur'
   s.platform     = :ios
   s.source_files = 'Imgur/*.{h,m}'
