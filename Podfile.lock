@@ -1,0 +1,18 @@
+PODS:
+  - ConciseKit (0.1.2)
+  - Expecta (0.2.0)
+  - MKNetworkKit (0.83):
+    - Reachability (~> 3.0)
+  - OCMock (2.0.1)
+  - RSOAuthEngine (1.0.0):
+    - MKNetworkKit
+  - Reachability (3.0.0)
+  - Specta (0.1.5)
+
+DEPENDENCIES:
+  - ConciseKit
+  - Expecta
+  - MKNetworkKit
+  - OCMock
+  - RSOAuthEngine
+  - Specta (~> 0.1.5)

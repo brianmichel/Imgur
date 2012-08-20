@@ -1,0 +1,12 @@
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+
+#import "Specta.h"
+#define EXP_SHORTHAND
+#import "Expecta.h"
+#import "Imgur.h"
+#import "OCMock.h"
+#import "ConciseKit.h"
+
+#endif

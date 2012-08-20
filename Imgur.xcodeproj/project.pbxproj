@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570ADF2A52B246FBB217561D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B4B09C44AD48A780300BAF /* libPods.a */; };
 		72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C815E17D5C002A965D /* Foundation.framework */; };
 		72A293CE15E17D5C002A965D /* Imgur.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72A293CD15E17D5C002A965D /* Imgur.h */; };
 		72A293D015E17D5C002A965D /* Imgur.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A293CF15E17D5C002A965D /* Imgur.m */; };
@@ -15,7 +16,8 @@
 		72A293DB15E17D5C002A965D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C815E17D5C002A965D /* Foundation.framework */; };
 		72A293DE15E17D5C002A965D /* libImgur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C515E17D5C002A965D /* libImgur.a */; };
 		72A293E415E17D5D002A965D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A293E215E17D5D002A965D /* InfoPlist.strings */; };
-		72A293E715E17D5D002A965D /* ImgurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A293E615E17D5D002A965D /* ImgurTests.m */; };
+		72A293FE15E1814B002A965D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293FD15E18147002A965D /* libPods.a */; };
+		72A2940815E1961D002A965D /* ImgurSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A2940715E1961D002A965D /* ImgurSpecs.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 72A293C415E17D5B002A965D;
 			remoteInfo = Imgur;
+		};
+		72A293FC15E18147002A965D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72A293F515E18146002A965D /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C5266866936F45D6B553AFFC;
+			remoteInfo = Pods;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,8 +51,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09B4B09C44AD48A780300BAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A293C515E17D5C002A965D /* libImgur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImgur.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		72A293C815E17D5C002A965D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72A293C815E17D5C002A965D /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		72A293CC15E17D5C002A965D /* Imgur-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imgur-Prefix.pch"; sourceTree = "<group>"; };
 		72A293CD15E17D5C002A965D /* Imgur.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Imgur.h; sourceTree = "<group>"; };
 		72A293CF15E17D5C002A965D /* Imgur.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Imgur.m; sourceTree = "<group>"; };
@@ -52,8 +62,11 @@
 		72A293D915E17D5C002A965D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		72A293E115E17D5D002A965D /* ImgurTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImgurTests-Info.plist"; sourceTree = "<group>"; };
 		72A293E315E17D5D002A965D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		72A293E515E17D5D002A965D /* ImgurTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImgurTests.h; sourceTree = "<group>"; };
-		72A293E615E17D5D002A965D /* ImgurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgurTests.m; sourceTree = "<group>"; };
+		72A293F515E18146002A965D /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = SOURCE_ROOT; };
+		72A293FF15E19267002A965D /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		72A2940715E1961D002A965D /* ImgurSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurSpecs.m; sourceTree = "<group>"; };
+		72A2940C15E199D6002A965D /* ImgurTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ImgurTests-Prefix.pch"; sourceTree = "<group>"; };
+		B7DA3055C03B419DACEA3DED /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A293FE15E1814B002A965D /* libPods.a in Frameworks */,
 				72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */,
+				570ADF2A52B246FBB217561D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				72A293CA15E17D5C002A965D /* Imgur */,
+				72A293F415E180A3002A965D /* Dependencies */,
 				72A293DF15E17D5C002A965D /* ImgurTests */,
 				72A293C715E17D5C002A965D /* Frameworks */,
 				72A293C615E17D5C002A965D /* Products */,
+				B7DA3055C03B419DACEA3DED /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +121,7 @@
 				72A293C815E17D5C002A965D /* Foundation.framework */,
 				72A293D715E17D5C002A965D /* SenTestingKit.framework */,
 				72A293D915E17D5C002A965D /* UIKit.framework */,
+				09B4B09C44AD48A780300BAF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +139,7 @@
 		72A293CB15E17D5C002A965D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				72A293FF15E19267002A965D /* Pods.xcconfig */,
 				72A293CC15E17D5C002A965D /* Imgur-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -129,8 +148,7 @@
 		72A293DF15E17D5C002A965D /* ImgurTests */ = {
 			isa = PBXGroup;
 			children = (
-				72A293E515E17D5D002A965D /* ImgurTests.h */,
-				72A293E615E17D5D002A965D /* ImgurTests.m */,
+				72A2940715E1961D002A965D /* ImgurSpecs.m */,
 				72A293E015E17D5D002A965D /* Supporting Files */,
 			);
 			path = ImgurTests;
@@ -139,10 +157,28 @@
 		72A293E015E17D5D002A965D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				72A2940C15E199D6002A965D /* ImgurTests-Prefix.pch */,
 				72A293E115E17D5D002A965D /* ImgurTests-Info.plist */,
 				72A293E215E17D5D002A965D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72A293F415E180A3002A965D /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				72A293F515E18146002A965D /* Pods.xcodeproj */,
+			);
+			name = Dependencies;
+			path = Imgur;
+			sourceTree = "<group>";
+		};
+		72A293F615E18146002A965D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72A293FD15E18147002A965D /* libPods.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +191,7 @@
 				72A293C115E17D5B002A965D /* Sources */,
 				72A293C215E17D5B002A965D /* Frameworks */,
 				72A293C315E17D5B002A965D /* CopyFiles */,
+				D6F0F9F7A0504522973FEF5B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +240,12 @@
 			mainGroup = 72A293BA15E17D5B002A965D;
 			productRefGroup = 72A293C615E17D5C002A965D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 72A293F615E18146002A965D /* Products */;
+					ProjectRef = 72A293F515E18146002A965D /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				72A293C415E17D5B002A965D /* Imgur */,
@@ -210,6 +253,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		72A293FD15E18147002A965D /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = 72A293FC15E18147002A965D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		72A293D315E17D5C002A965D /* Resources */ = {
@@ -236,6 +289,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		D6F0F9F7A0504522973FEF5B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -251,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72A293E715E17D5D002A965D /* ImgurTests.m in Sources */,
+				72A2940815E1961D002A965D /* ImgurSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,10 +390,12 @@
 		};
 		72A293EB15E17D5D002A965D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7DA3055C03B419DACEA3DED /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Imgur.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/Headers/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -335,10 +404,12 @@
 		};
 		72A293EC15E17D5D002A965D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7DA3055C03B419DACEA3DED /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Imgur.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/Headers/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -347,13 +418,14 @@
 		};
 		72A293EE15E17D5D002A965D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72A293FF15E19267002A965D /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				GCC_PREFIX_HEADER = "ImgurTests/ImgurTests-Prefix.pch";
 				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -362,13 +434,14 @@
 		};
 		72A293EF15E17D5D002A965D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72A293FF15E19267002A965D /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Imgur/Imgur-Prefix.pch";
+				GCC_PREFIX_HEADER = "ImgurTests/ImgurTests-Prefix.pch";
 				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -394,6 +467,7 @@
 				72A293EC15E17D5D002A965D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72A293ED15E17D5D002A965D /* Build configuration list for PBXNativeTarget "ImgurTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +476,7 @@
 				72A293EF15E17D5D002A965D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
