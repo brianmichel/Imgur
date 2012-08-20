@@ -10,7 +10,7 @@
 
 NSString * const kImgurAPIBaseURL = @"api.imgur.com";
 NSString * const kImgurImageBaseURL = @"http://i.imgur.com";
-NSString * const kImgurAPIVersion = @"2.0";
+NSString * const kImgurAPIVersion = @"2";
 
 NSString * const kImgurParamsNameKey = @"name";
 NSString * const kImgurParamsTitleKey = @"title";
@@ -143,7 +143,7 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   return NO;
 }
 
-#pragma mark - Image Fetching
+#pragma mark - Public API
 - (void)fetchImageForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler {
   MKNetworkOperation *op = [self operationWithURLString:[[Imgur urlForHashCode:hashCode] absoluteString]];
   [op onCompletion:^(MKNetworkOperation *completedOperation) {
@@ -158,7 +158,66 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   [self enqueueOperation:op];
 }
 
-#pragma mark - Image Uploading
+- (void)deleteImageForDeleteHash:(NSString *)deleteHash withCompletionHandler:(ImgurCompletionHandler)handler {
+  MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/delete/%@.json", kImgurAPIVersion, deleteHash]];
+  MKNKResponseBlock completionBlock = nil;
+  MKNKErrorBlock errorBlock = nil;
+  [self initializeCompletionBlock:&completionBlock andErrorBlock:&errorBlock forHandler:handler];
+  
+  [op onCompletion:completionBlock onError:errorBlock];
+  
+  [self enqueueOperation:op];
+}
+
+- (void)fetchSiteStatisticsWithCompletionHandler:(ImgurCompletionHandler)handler {
+  MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/stats.json", kImgurAPIVersion]];
+  MKNKResponseBlock completionBlock = nil;
+  MKNKErrorBlock errorBlock = nil;
+  [self initializeCompletionBlock:&completionBlock andErrorBlock:&errorBlock forHandler:handler];
+  
+  [op onCompletion:completionBlock onError:errorBlock];
+  
+  [self enqueueOperation:op];
+}
+
+- (void)uploadImageFromURL:(NSURL *)imageURL withParams:(NSDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
+  NSMutableDictionary *additionalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+  additionalParameters[@"image"] = [imageURL absoluteString];
+  additionalParameters[@"type"] = @"url";
+  [self uploadImageWithParameters:additionalParameters andCompletionHandler:handler];
+}
+
+- (void)uploadImageFromData:(NSData *)imageData withParams:(NSDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
+  NSMutableDictionary *additionalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+  additionalParameters[@"image"] = imageData;
+  additionalParameters[@"type"] = @"file";
+  [self uploadImageWithParameters:additionalParameters andCompletionHandler:handler];
+}
+
+- (void)uploadImageWithParameters:(NSMutableDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
+  if (self.apiType == ImgurAPITypeAnonymous) {
+    parameters[@"key"] = _developerKey;
+  }
+  MKNKResponseBlock completionBlock = nil;
+  MKNKErrorBlock errorBlock = nil;
+  [self initializeCompletionBlock:&completionBlock andErrorBlock:&errorBlock forHandler:handler];
+  
+  if (self.apiType == ImgurAPITypeAuthenticated && !self.isAuthenticated) {
+    [self authenticateWithCompletionHandler:^(NSError *authError) {
+      if (!authError) {
+        MKNetworkOperation *op = [self operationWithPath:[self urlForImages] params:parameters httpMethod:@"POST"];
+        [op onCompletion:completionBlock onError:errorBlock];
+        [self enqueueSignedOperation:op];
+      }
+    }];
+  } else {
+    MKNetworkOperation *op = [self operationWithPath:[self urlForImages] params:parameters httpMethod:@"POST"];
+    [op onCompletion:completionBlock onError:errorBlock];
+    [self enqueueOperation:op];
+  }
+}
+
+#pragma mark - Authentication
 
 - (void)authenticateWithCompletionHandler:(ImgurOAuthCompletionHandler)handler {
   self.oauthCompletionHandler = handler;
@@ -195,68 +254,27 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   }];
 }
 
-- (void)uploadImageFromURL:(NSURL *)imageURL withParams:(NSDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
-  NSMutableDictionary *additionalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
-  additionalParameters[@"image"] = [imageURL absoluteString];
-  additionalParameters[@"type"] = @"url";
-  [self uploadImageWithParameters:additionalParameters andCompletionHandler:handler];
-}
-
-- (void)uploadImageFromData:(NSData *)imageData withParams:(NSDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
-  NSMutableDictionary *additionalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
-  additionalParameters[@"image"] = imageData;
-  additionalParameters[@"type"] = @"file";
-  [self uploadImageWithParameters:additionalParameters andCompletionHandler:handler];
-}
-
-- (void)uploadImageWithParameters:(NSMutableDictionary *)parameters andCompletionHandler:(ImgurCompletionHandler)handler {
-  if (self.apiType == ImgurAPITypeAnonymous) {
-    parameters[@"key"] = _developerKey;
-  }
-  
-  if (self.apiType == ImgurAPITypeAuthenticated && !self.isAuthenticated) {
-    [self authenticateWithCompletionHandler:^(NSError *authError) {
-      if (!authError) {
-        MKNetworkOperation *op = [self operationWithPath:[self urlForImages] params:parameters httpMethod:@"POST"];
-        
-        [op onCompletion:^(MKNetworkOperation *completedOperation) {
-          //success
-          NSError *parseError = nil;
-          NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:[completedOperation responseData] options:0 error:&parseError];
-          if (handler) {
-            handler(parseError, responseDictionary);
-          }
-        } onError:^(NSError *error) {
-          if (handler) {
-            handler(error, nil);
-          }
-        }];
-        
-        [self enqueueOperation:op];
-      }
-    }];
-  } else {
-    
-    MKNetworkOperation *op = [self operationWithPath:[self urlForImages] params:parameters httpMethod:@"POST"];
-    
-    [op onCompletion:^(MKNetworkOperation *completedOperation) {
-      //success
+#pragma mark - Helpers
+- (void)initializeCompletionBlock:(MKNKResponseBlock *)outCompletionBlock andErrorBlock:(MKNKErrorBlock *)outErrorBlock forHandler:(ImgurCompletionHandler)handler {
+  if (outCompletionBlock) {
+    *outCompletionBlock = ^(MKNetworkOperation *completedOperation) {
       NSError *parseError = nil;
       NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:[completedOperation responseData] options:0 error:&parseError];
       if (handler) {
         handler(parseError, responseDictionary);
       }
-    } onError:^(NSError *error) {
+    };
+  }
+  
+  if (outErrorBlock) {
+    *outErrorBlock = ^(NSError *error) {
       if (handler) {
         handler(error, nil);
       }
-    }];
-    
-    [self enqueueOperation:op];
+    };
   }
 }
 
-#pragma mark - Helpers
 + (NSURL *)urlForHashCode:(NSString *)hashCode {
   return [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@.jpg", kImgurImageBaseURL, hashCode]];
 }
@@ -265,10 +283,10 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   NSString *endPath = nil;
   switch (self.apiType) {
     case ImgurAPITypeAnonymous:
-      endPath = @"2/upload.json";
+      endPath = [NSString stringWithFormat:@"%@/upload.json", kImgurAPIVersion];
       break;
     case ImgurAPITypeAuthenticated:
-      endPath = @"2/account/images.json";
+      endPath = [NSString stringWithFormat:@"%@/account/images.json", kImgurAPIVersion];
     default:
       break;
   }

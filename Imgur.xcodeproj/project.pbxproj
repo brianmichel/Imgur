@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		570ADF2A52B246FBB217561D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B4B09C44AD48A780300BAF /* libPods.a */; };
 		72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A293C815E17D5C002A965D /* Foundation.framework */; };
 		72A293CE15E17D5C002A965D /* Imgur.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72A293CD15E17D5C002A965D /* Imgur.h */; };
 		72A293D015E17D5C002A965D /* Imgur.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A293CF15E17D5C002A965D /* Imgur.m */; };
@@ -76,7 +75,6 @@
 			files = (
 				72A293FE15E1814B002A965D /* libPods.a in Frameworks */,
 				72A293C915E17D5C002A965D /* Foundation.framework in Frameworks */,
-				570ADF2A52B246FBB217561D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +424,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImgurTests/ImgurTests-Prefix.pch";
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -442,6 +441,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImgurTests/ImgurTests-Prefix.pch";
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "ImgurTests/ImgurTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;

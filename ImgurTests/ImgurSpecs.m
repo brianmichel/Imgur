@@ -16,6 +16,12 @@ SpecBegin(ImgurSpec)
 describe(@"imgur", ^{
   __block Imgur *authenticated = [[Imgur alloc] initWithKey:ConsumerKey andSecret:ConsumerSecret];
   
+  it(@"should have test values set", ^{
+    expect(DeveloperKey).toNot.beNil;
+    expect(ConsumerKey).toNot.beNil;
+    expect(ConsumerSecret).toNot.beNil;
+  });
+  
   beforeAll(^{
     [Expecta setAsynchronousTestTimeout:5];
   });
@@ -34,11 +40,40 @@ describe(@"imgur", ^{
     [$ waitUntil:^{return (BOOL)(loaded == YES);}];
   });
   
+  it(@"should fetch site statistics", ^{
+    __block BOOL loaded = NO;
+    [authenticated fetchSiteStatisticsWithCompletionHandler:^(NSError *error, NSDictionary *statisticsDictionary) {
+      expect(error).to.beNil;
+      expect(statisticsDictionary).toNot.beNil;
+    }];
+    [$ waitUntil:^{return (BOOL)(loaded == YES);}];
+  });
+
+  it(@"should initialize the completion and error blocks correctly", ^{
+    MKNKErrorBlock error = nil;
+    MKNKResponseBlock response = nil;
+    [authenticated initializeCompletionBlock:&response andErrorBlock:&error forHandler:^(NSError *error, NSDictionary *dictionary) {
+      //nothing
+    }];
+    expect(error).toNot.beNil;
+    expect(response).toNot.beNil;
+  });
+  
+  it(@"should fail to delete a hash which is not real", ^{
+    __block BOOL loaded = NO;
+    [authenticated deleteImageForDeleteHash:@"oefjwf" withCompletionHandler:^(NSError *error, NSDictionary *dictionary) {
+      expect(error).toNot.beNil;
+      expect(dictionary).to.beNil;
+    }];
+    [$ waitUntil:^{return (BOOL)(loaded == YES);}];
+  });
+  
   __block Imgur *unauthenticated = [[Imgur alloc] initWithDeveloperKey:DeveloperKey];
   
   it(@"should have correct API type set", ^{
     expect(unauthenticated.apiType).to.equal(ImgurAPITypeAnonymous);
   });
+  
 });
 
 SpecEnd

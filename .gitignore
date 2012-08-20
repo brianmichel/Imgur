@@ -1,3 +1,4 @@
 Pods/*
 *.xcodeproj/*
 DerivedData/*
+docset-installed.txt
