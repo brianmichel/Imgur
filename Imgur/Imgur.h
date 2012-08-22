@@ -81,6 +81,8 @@ typedef void(^ImgurOAuthCompletionHandler)(NSError *);
 - (void)fetchImageForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler;
 
 /* Retreive information about a given Imgur hashCode
+ @param hashCode A valid Imgur hash code for an image.
+ @param handler An `ImgurCompletionHandler` that will be called after the response has been returned.
  */
 - (void)fetchImageInformationForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler;
 

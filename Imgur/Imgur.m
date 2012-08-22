@@ -159,7 +159,7 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
 }
 
 - (void)fetchImageInformationForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler {
-  MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/image%@.json", kImgurAPIVersion, hashCode]];
+  MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/image/%@.json", kImgurAPIVersion, hashCode]];
   MKNKResponseBlock completionBlock = nil;
   MKNKErrorBlock errorBlock = nil;
   [self initializeCompletionBlock:&completionBlock andErrorBlock:&errorBlock forHandler:handler];
