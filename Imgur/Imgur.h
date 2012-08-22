@@ -80,6 +80,16 @@ typedef void(^ImgurOAuthCompletionHandler)(NSError *);
  */
 - (void)fetchImageForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler;
 
+/* Retreive information about a given Imgur hashCode
+ */
+- (void)fetchImageInformationForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler;
+
+/* Retreive an album of photos for a given album ID
+ @param albumID A valid Imgur album ID.
+ @param handler An `ImgurCompletionHandler` that will be called after the response has been returned.
+ */
+- (void)fetchAlbumForID:(NSString *)albumID withCompletionHandler:(ImgurCompletionHandler)handler;
+
 /* Delete an image for a given delete hash
  @param deleteHash A valid Imgur delete hash code.
  @param handler An `ImgurCompletionHandler` that will be called after the response has been returned.

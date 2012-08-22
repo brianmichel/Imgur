@@ -158,6 +158,15 @@ NSDictionary * ImgurCreateParamsDictionary(NSString *name, NSString *title, NSSt
   [self enqueueOperation:op];
 }
 
+- (void)fetchImageInformationForHashCode:(NSString *)hashCode withCompletionHandler:(ImgurCompletionHandler)handler {
+  MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/image%@.json", kImgurAPIVersion, hashCode]];
+  MKNKResponseBlock completionBlock = nil;
+  MKNKErrorBlock errorBlock = nil;
+  [self initializeCompletionBlock:&completionBlock andErrorBlock:&errorBlock forHandler:handler];
+  [op onCompletion:completionBlock onError:errorBlock];
+  [self enqueueOperation:op];
+}
+
 - (void)deleteImageForDeleteHash:(NSString *)deleteHash withCompletionHandler:(ImgurCompletionHandler)handler {
   MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@/delete/%@.json", kImgurAPIVersion, deleteHash]];
   MKNKResponseBlock completionBlock = nil;
