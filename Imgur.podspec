@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'MKNetworkKit'
   s.dependency 'RSOAuthEngine'
+  s.dependency 'Base64'
 end
